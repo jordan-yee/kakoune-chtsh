@@ -31,7 +31,7 @@ tips:
 alias global chl chtsh-lang
 complete-command chtsh-lang shell-script-candidates %{
     # https://github.com/chubin/cheat.sh#programming-languages-cheat-sheets
-    echo 'arduino assembly awk bash basic bf c chapel clean clojure coffee cpp csharp d dart delphi dylan eiffel elixir elisp elm erlang factor fortran forth fsharp go groovy haskell java js julia kotlin latex lisp lua matlab nim ocaml octave perl perl6 php pike python python3 r racket ruby rust scala scheme solidity swift tcsh tcl objective-c vb vbnet' | tr ' ' '\n'
+    echo 'arduino assembly awk bash basic bf c chapel clean clojure coffee cpp csharp d dart delphi dylan eiffel elixir elisp elm erlang factor fortran forth fsharp go groovy haskell java js julia kotlin latex lisp lua matlab nim ocaml octave perl perl6 php pike python python3 r racket ruby rust scala scheme solidity swift tcsh tcl objective-c vb vbnet cmake django flask git' | tr ' ' '\n'
 }
 
 define-command chtsh-util -override -params 1 \
