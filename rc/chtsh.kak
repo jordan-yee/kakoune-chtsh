@@ -8,7 +8,13 @@
 
 define-command chtsh-lang -override -params 1 \
 -docstring 'query cht.sh about a language
-tips:
+Special cheat sheets (select w/ query, dependent on language support):
+- `hello` describes how you can start with the language
+- `:list` shows all topics related to the language
+- `:learn` shows a learn-x-in-minutes language cheat sheet perfect for getting started with the language.
+- `1line` is a collection of one-liners in this language
+- `weirdness` is a collection of examples of weird things in this language
+Query options:
 - append /1, /2, etc. to the query to get a different answer
 - append search options, like /i:
   i   case insensitive search
@@ -24,7 +30,7 @@ tips:
 
             # See the comments in the `chtsh-util` implementaion for alternative
             # lauch strategies...
-            tmux neww bash -c "curl https://cht.sh/$1/$query | kak"
+            tmux neww -n "cht.sh" bash -c "curl https://cht.sh/$1/$query | kak"
         }
     }
 }
@@ -36,7 +42,7 @@ complete-command chtsh-lang shell-script-candidates %{
 
 define-command chtsh-util -override -params 1 \
 -docstring 'query cht.sh about a unix utility
-tips:
+Query options:
 - append /1, /2, etc. to the query to get a different answer
 - append search options, like /i:
   i   case insensitive search
@@ -49,16 +55,16 @@ tips:
             # printf '%s\n' "curl cht.sh/$1/`echo $kak_text | tr ' ' '+'`"
 
             # Output directly to a terminal:
-            # tmux neww bash -c "curl https://cht.sh/$1~$query & while [ : ]; do sleep 1; done"
+            # tmux neww -n "cht.sh" bash -c "curl https://cht.sh/$1~$query & while [ : ]; do sleep 1; done"
 
             # Output to less pager w/ colors:
-            # tmux neww bash -c "curl https://cht.sh/$1~$query | less -R"
+            # tmux neww -n "cht.sh" bash -c "curl https://cht.sh/$1~$query | less -R"
 
             # Output to kak, removing ansi color codes:
-            # tmux neww bash -c "curl https://cht.sh/$1~$query?T | kak"
+            # tmux neww -n "cht.sh" bash -c "curl https://cht.sh/$1~$query?T | kak"
 
             # Output to kak w/ colors via the https://github.com/eraserhd/kak-ansi plugin:
-            tmux neww bash -c "curl https://cht.sh/$1~$query | kak"
+            tmux neww -n "cht.sh" bash -c "curl https://cht.sh/$1~$query | kak"
         }
     }
 }
